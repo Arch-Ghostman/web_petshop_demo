@@ -1,0 +1,498 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>PetDeluxe - Rações Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="header-top">
+            <div class="header-top-container">
+                <div class="store-info">
+                    <div class="store-status">
+                        <div class="status-indicator" id="status-indicator"></div>
+                        <span id="status-text">Carregando...</span>
+                    </div>
+                    <div class="store-hours" id="store-hours">
+                        Seg-Sex: 8h-18h | Sáb: 9h-13h
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>(11) 9999-9999</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>contato@petdeluxe.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-main">
+            <div class="header-container">
+                <div class="logo">
+                    <i class="fas fa-paw"></i>
+                    <span>PetDeluxe</span>
+                </div>
+                <nav class="nav-links">
+                    <a href="#hero">Início</a>
+                    <a href="#products">Produtos</a>
+                    <a href="#">Marcas</a>
+                    <a href="#">Sobre Nós</a>
+                    <a href="#">Contato</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="header-cart-btn" id="header-cart-btn" title="Carrinho de Compras">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="header-cart-count" id="header-cart-count">0</span>
+                    </button>
+                    <div class="status-display" id="header-status">
+                        <i class="fas fa-store"></i>
+                        <span>Carregando...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Modal de quantidade -->
+    <div class="quantity-modal" id="quantity-modal">
+        <div class="quantity-modal-content">
+            <div class="quantity-modal-header">
+                <h3 class="quantity-modal-title" id="modal-product-name">Selecionar Quantidade</h3>
+                <button class="close-modal" id="close-modal">&times;</button>
+            </div>
+            
+            <div class="quantity-options">
+                <label class="quantity-option" id="option-kg">
+                    <input type="radio" name="quantity-type" value="kg" checked>
+                    <span>Por Peso (kg)</span>
+                </label>
+                
+                <label class="quantity-option" id="option-value">
+                    <input type="radio" name="quantity-type" value="value">
+                    <span>Por Valor (R$)</span>
+                </label>
+                
+                <div class="custom-quantity">
+                    <div>Quantidade desejada:</div>
+                    <div class="custom-quantity-inputs">
+                        <input type="text" class="custom-quantity-input" id="quantity-input" placeholder="0,00" inputmode="decimal">
+                        <span id="quantity-unit">kg</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quantity-summary">
+                <div>Total a pagar:</div>
+                <div class="quantity-summary-price" id="modal-total-price">R$ 0,00</div>
+            </div>
+            
+            <button class="add-to-cart-modal" id="add-to-cart-modal" disabled>
+                <i class="fas fa-cart-plus"></i>
+                Adicionar ao Carrinho
+            </button>
+        </div>
+    </div>
+
+    <!-- Menu Mobile -->
+    <nav class="mobile-menu">
+        <div class="mobile-menu-items">
+            <a href="#hero" class="mobile-menu-item" data-section="hero">
+                <i class="fas fa-home"></i>
+                <span>Início</span>
+            </a>
+            <a href="#products" class="mobile-menu-item" data-section="products">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Produtos</span>
+            </a>
+            <a href="#" class="mobile-menu-item" id="mobile-cart" data-section="cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Carrinho</span>
+                <span class="cart-count-mobile" id="cart-count-mobile">0</span>
+            </a>
+            <a href="#search" class="mobile-menu-item" data-section="search">
+                <i class="fas fa-search"></i>
+                <span>Buscar</span>
+            </a>
+            <a href="#" class="mobile-menu-item" id="mobile-menu-toggle" data-section="menu">
+                <i class="fas fa-bars"></i>
+                <span>Menu</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Nutrição de Qualidade para Seu Pet</h1>
+            <p>Oferecemos as melhores rações e alimentos para garantir a saúde e felicidade do seu animal de estimação</p>
+            
+            <div class="hero-contact-links">
+                <a href="https://wa.me/5511999999999" target="_blank" class="contact-link whatsapp" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="tel:+5511999999999" class="contact-link phone" title="Ligar">
+                    <i class="fas fa-phone"></i>
+                    <span>Ligar</span>
+                </a>
+                <a href="https://www.instagram.com/petdeluxe" target="_blank" class="contact-link instagram" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+            </div>
+            
+            <a href="#products" class="cta-button">Ver Produtos</a>
+        </div>
+    </section>
+
+    <!-- Notificação de produto adicionado -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span>Produto adicionado ao carrinho!</span>
+    </div>
+
+    <!-- Modal de Busca Mobile -->
+    <div class="search-modal" id="search-modal">
+        <div class="search-modal-content">
+            <div class="search-modal-header">
+                <h3>Buscar Produtos</h3>
+                <button class="close-search-modal" id="close-search-modal">&times;</button>
+            </div>
+            <div class="search-modal-body">
+                <div class="search-modal-box">
+                    <i class="fas fa-search search-modal-icon"></i>
+                    <input type="text" class="search-modal-input" id="search-modal-input" placeholder="Digite o nome do produto...">
+                </div>
+                <div class="search-modal-results" id="search-modal-results">
+                    <!-- Resultados da busca aparecerão aqui -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="container" id="products">
+        <div class="section-title">
+            <h2>Nossos Produtos</h2>
+        </div>
+
+        <!-- Barra de Busca -->
+        <div class="search-container" id="search">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" id="search-input" placeholder="Buscar produtos por nome...">
+            </div>
+            <div class="search-results-count" id="search-results-count"></div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filters">
+            <div class="filter-section">
+                <div class="filter-title">
+                    <i class="fas fa-filter"></i>
+                    Filtrar por tipo de produto:
+                </div>
+                <div class="filter-options" id="product-type-filters">
+                    <button class="filter-btn active" data-product-type="all" data-filter-type="product">
+                         Todos
+                    </button>
+                    <button class="filter-btn" data-product-type="racao" data-filter-type="product">
+                        <i class="fas fa-bowl-food"></i> Rações
+                    </button>
+                    <button class="filter-btn" data-product-type="higiene" data-filter-type="product">
+                        <i class="fas fa-soap"></i> Higiene
+                    </button>
+                    <button class="filter-btn" data-product-type="medicamento" data-filter-type="product">
+                        <i class="fas fa-pills"></i> Medicamentos
+                    </button>
+                    <button class="filter-btn" data-product-type="acessorio" data-filter-type="product">
+                        <i class="fas fa-paw"></i> Acessórios
+                    </button>
+                    <button class="filter-btn" data-product-type="gaiola" data-filter-type="product">
+                        <i class="fas fa-home"></i> Gaiolas/Aquários
+                    </button>
+                    <button class="filter-btn" data-product-type="animal" data-filter-type="product">
+                        <i class="fas fa-dove"></i> Animais
+                    </button>
+                    <button class="filter-btn" data-product-type="complemento" data-filter-type="product">
+                        <i class="fas fa-cookie"></i> Complementos
+                    </button>
+                    <button class="filter-btn" data-product-type="material" data-filter-type="product">
+                        <i class="fas fa-hammer"></i> Materiais
+                    </button>
+                </div>
+            </div>
+            <div class="filter-section">
+                <div class="filter-title">
+                    <i class="fas fa-paw"></i>
+                    Filtrar por tipo de animal:
+                </div>
+                <div class="filter-options" id="animal-type-filters">
+                    <button class="filter-btn active" data-animal-type="all" data-filter-type="animal">
+                        <i class="fas fa-paw"></i> Todos
+                    </button>
+                    <button class="filter-btn" data-animal-type="cachorro" data-filter-type="animal">
+                        <i class="fas fa-dog"></i> Cachorro
+                    </button>
+                    <button class="filter-btn" data-animal-type="gato" data-filter-type="animal">
+                        <i class="fas fa-cat"></i> Gato
+                    </button>
+                    <button class="filter-btn" data-animal-type="passaro" data-filter-type="animal">
+                        <i class="fas fa-dove"></i> Pássaro
+                    </button>
+                    <button class="filter-btn" data-animal-type="peixe" data-filter-type="animal">
+                        <i class="fas fa-fish"></i> Peixe
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produtos -->
+        <div class="products-grid" id="products-grid">
+            <!-- Os produtos serão carregados via JavaScript -->
+        </div>
+
+        <!-- Mensagem quando não há resultados -->
+        <div class="no-results" id="no-results" style="display: none;">
+            <i class="fas fa-search"></i>
+            <h3>Nenhum produto encontrado</h3>
+            <p>Tente ajustar sua busca ou filtro para encontrar o que procura.</p>
+        </div>
+    </div>
+
+    <!-- Carrinho lateral -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Seu Carrinho</h2>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Itens do carrinho serão carregados aqui -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">R$ 0,00</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Menu lateral (mobile) -->
+    <div class="menu-sidebar" id="menu-sidebar">
+        <div class="menu-header">
+            <h2>Menu</h2>
+            <button class="close-menu" id="close-menu">&times;</button>
+        </div>
+        <div class="menu-items">
+            <a href="#hero" class="menu-link">Início</a>
+            <a href="#products" class="menu-link">Produtos</a>
+            <a href="#" class="menu-link">Marcas</a>
+            <a href="#" class="menu-link">Sobre Nós</a>
+            <a href="#" class="menu-link">Contato</a>
+        </div>
+    </div>
+
+    <!-- Modal de Checkout -->
+    <div class="checkout-modal" id="checkout-modal">
+        <div class="checkout-modal-content">
+            <div class="checkout-header">
+                <h2>Finalizar Pedido</h2>
+                <button class="close-checkout" id="close-checkout">&times;</button>
+            </div>
+            
+            <form id="checkout-form" class="checkout-form">
+                <!-- Tipo de Entrega -->
+                <div class="form-section">
+                    <h3>Tipo de Entrega</h3>
+                    <div class="delivery-options">
+                        <label class="delivery-option">
+                            <input type="radio" name="delivery-type" value="pickup" checked>
+                            <div class="delivery-option-content">
+                                <i class="fas fa-store"></i>
+                                <span>Retirada no Local</span>
+                            </div>
+                        </label>
+                        <label class="delivery-option">
+                            <input type="radio" name="delivery-type" value="delivery">
+                            <div class="delivery-option-content">
+                                <i class="fas fa-truck"></i>
+                                <span>Entrega</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Dados do Cliente -->
+                <div class="form-section">
+                    <h3>Dados do Cliente</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customer-name">Nome Completo *</label>
+                            <input type="text" id="customer-name" name="customer-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-phone">Telefone/WhatsApp *</label>
+                            <input type="tel" id="customer-phone" name="customer-phone" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customer-email">E-mail</label>
+                            <input type="email" id="customer-email" name="customer-email">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Endereço (apenas se entrega) -->
+                <div class="form-section" id="address-section" style="display: none;">
+                    <h3>Endereço de Entrega</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="address-cep">CEP *</label>
+                            <input type="text" id="address-cep" name="address-cep" maxlength="9">
+                        </div>
+                        <div class="form-group">
+                            <label for="address-street">Rua/Avenida *</label>
+                            <input type="text" id="address-street" name="address-street">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="address-number">Número *</label>
+                            <input type="text" id="address-number" name="address-number">
+                        </div>
+                        <div class="form-group">
+                            <label for="address-complement">Complemento</label>
+                            <input type="text" id="address-complement" name="address-complement" placeholder="Apto, Bloco, etc.">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="address-neighborhood">Bairro *</label>
+                            <input type="text" id="address-neighborhood" name="address-neighborhood">
+                        </div>
+                        <div class="form-group">
+                            <label for="address-city">Cidade *</label>
+                            <input type="text" id="address-city" name="address-city">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="address-state">Estado *</label>
+                            <input type="text" id="address-state" name="address-state" maxlength="2" placeholder="SP">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Forma de Pagamento -->
+                <div class="form-section">
+                    <h3>Forma de Pagamento</h3>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="pix" checked>
+                            <div class="payment-option-content">
+                                <i class="fas fa-qrcode"></i>
+                                <span>PIX</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="cash">
+                            <div class="payment-option-content">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Dinheiro</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="card">
+                            <div class="payment-option-content">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Cartão</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Observações -->
+                <div class="form-section">
+                    <h3>Observações</h3>
+                    <div class="form-group">
+                        <label for="order-notes">Observações do Pedido</label>
+                        <textarea id="order-notes" name="order-notes" rows="3" placeholder="Informações adicionais sobre o pedido..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Resumo do Pedido -->
+                <div class="form-section">
+                    <h3>Resumo do Pedido</h3>
+                    <div id="checkout-summary" class="checkout-summary">
+                        <!-- Resumo será preenchido via JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Botões -->
+                <div class="checkout-actions">
+                    <button type="button" class="btn-cancel" id="cancel-checkout">Cancelar</button>
+                    <button type="submit" class="btn-submit">Enviar Pedido para WhatsApp</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Overlay para o carrinho -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Rodapé -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>PetDeluxe</h3>
+                <p style="color: #adb5bd;">Oferecemos produtos de alta qualidade para a saúde e bem-estar do seu animal de estimação.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Produtos</a></li>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contato</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> Rua Exemplo, 123 - São Paulo, SP</li>
+                    <li><i class="fas fa-phone"></i> (11) 9999-9999</li>
+                    <li><i class="fas fa-envelope"></i> contato@petdeluxe.com</li>
+                </ul>
+                <div class="opening-hours">
+                    <h4>Horário de Funcionamento</h4>
+                    <ul>
+                        <li><span>Segunda a Sexta:</span> <span>8h às 18h</span></li>
+                        <li><span>Sábado:</span> <span>9h às 13h</span></li>
+                        <li><span>Domingo:</span> <span>Fechado</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 PetDeluxe - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
+ 
